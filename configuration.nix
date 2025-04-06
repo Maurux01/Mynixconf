@@ -33,6 +33,8 @@
       docker
       emacs
       (emacsPackagesFor emacs).spacemacsPackages.base  # Spacemacs
+      onlyoffice-bin    # Added ONLYOFFICE
+      masterpdfeditor   # Added Master PDF Editor
     ];
   };
 
