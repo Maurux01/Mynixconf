@@ -53,6 +53,33 @@
 
 
   # Habilita X11 y Plasma5
+  # Drivers de video (ajusta según tu hardware: "nvidia", "amdgpu", "intel")
+  services.xserver.videoDrivers = [ "modesetting" ];
+
+  # Soporte para touchpad (laptops)
+  services.xserver.libinput.enable = true;
+
+  # Variables de entorno para QT y GTK
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    GTK_THEME = "Adwaita:dark";
+    XCURSOR_THEME = "Adwaita";
+    XCURSOR_SIZE = "24";
+  };
+
+  # Utilidades para portapapeles y screenshots
+  environment.systemPackages = with pkgs; [
+    # ...existing code...
+    wl-clipboard
+    xclip
+    grim
+    slurp
+    flameshot
+  ];
+
+  # Soporte Bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
   services.xserver.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   # Habilita i3 como gestor de ventanas X11
