@@ -69,6 +69,22 @@
 
   # Utilidades para portapapeles y screenshots
   environment.systemPackages = with pkgs; [
+  cascadia-code
+  corefonts
+  # Soporte para impresoras
+  services.printing.enable = true;
+
+  # Soporte para firewall
+  networking.firewall.enable = true;
+
+  # Soporte para Flatpak
+  services.flatpak.enable = true;
+
+  # Soporte para actualizaciones automáticas
+  system.autoUpgrade.enable = true;
+
+  # Soporte para compartir archivos con Windows (Samba)
+  services.samba.enable = true;
     # ...existing code...
     wl-clipboard
     xclip
