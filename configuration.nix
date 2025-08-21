@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
-
+  tmux
 {
   imports =
     [
@@ -38,7 +38,7 @@
       # Paquetes útiles para i3 y Hyprland
       dmenu
       i3status
-      alacritty
+      
       kitty
       waybar
       rofi-wayland
@@ -69,6 +69,32 @@
 
   # Utilidades para portapapeles y screenshots
   environment.systemPackages = with pkgs; [
+  # Portapapeles
+  cliphist
+  clipmenu
+  # Notificaciones
+  mako
+  # Fondos de pantalla
+  swaybg
+  feh
+  # Bloqueo de pantalla
+  swaylock
+  i3lock
+  # Energía y discos
+  udiskie
+  acpi
+  powertop
+  tlp
+  # Redes y Bluetooth
+  networkmanagerapplet
+  blueman
+  # Terminal moderno extra
+  foot
+  # Audio
+  pavucontrol
+  # Emojis y fuentes extra
+  noto-fonts-emoji
+  nerdfonts
   cascadia-code
   corefonts
   # Soporte para impresoras
