@@ -36,10 +36,15 @@
       vim
       neovim
       vscode
-      cava
       spotify
-      spotify-tui
-      lazygit
+      kitty
+      rofi
+      dunst
+      copyq
+      tmux
+      starship
+      fish
+      zsh
       lazydocker
       docker
       emacs
