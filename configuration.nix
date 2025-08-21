@@ -1,5 +1,16 @@
 { config, pkgs, ... }:
   tmux
+  # Rice & Hyprland extra
+  hyperlock
+  swww
+  starship
+  fish
+  zsh
+  wofi-clipboard
+  nwg-look
+  nwg-dock
+  adwaita-qt
+  adwaita-gtk
 {
   imports =
     [

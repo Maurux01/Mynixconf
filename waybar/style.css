@@ -1,15 +1,16 @@
-/* Gruvbox Dark Theme for Waybar */
-
-@define-color bg #282828;
-@define-color fg #ebdbb2;
-@define-color yellow #fabd2f;
-@define-color orange #fe8019;
-@define-color red #fb4934;
-@define-color green #b8bb26;
-@define-color blue #83a598;
-@define-color purple #d3869b;
-@define-color aqua #8ec07c;
-@define-color gray #a89984;
+/* Gruvbox Dark Theme for Waybar (CSS variables) */
+:root {
+  --bg: #282828;
+  --fg: #ebdbb2;
+  --yellow: #fabd2f;
+  --orange: #fe8019;
+  --red: #fb4934;
+  --green: #b8bb26;
+  --blue: #83a598;
+  --purple: #d3869b;
+  --aqua: #8ec07c;
+  --gray: #a89984;
+}
 
 * {
   font-family: "JetBrainsMono Nerd Font", "FontAwesome", monospace;
@@ -20,47 +21,47 @@
 }
 
 window#waybar {
-  background: @bg;
-  color: @fg;
-  border-bottom: 2px solid @yellow;
+  background: var(--bg);
+  color: var(--fg);
+  border-bottom: 2px solid var(--yellow);
 }
 
 #workspaces button {
   background: transparent;
-  color: @gray;
+  color: var(--gray);
   border: none;
   padding: 0 8px;
 }
 #workspaces button.active {
-  background: @yellow;
-  color: @bg;
+  background: var(--yellow);
+  color: var(--bg);
 }
 #workspaces button.urgent {
-  background: @red;
-  color: @bg;
+  background: var(--red);
+  color: var(--bg);
 }
 
 #clock, #cpu, #memory, #battery, #network, #pulseaudio, #tray, #custom-logo, #custom-power {
   padding: 0 10px;
-  background: @bg;
-  color: @fg;
+  background: var(--bg);
+  color: var(--fg);
 }
 
 #battery.critical {
-  color: @red;
+  color: var(--red);
 }
 
 #pulseaudio.muted {
-  color: @gray;
+  color: var(--gray);
 }
 
 #custom-logo {
-  color: @orange;
+  color: var(--orange);
   font-weight: bold;
 }
 
 #custom-power {
-  color: @red;
+  color: var(--red);
   font-weight: bold;
   margin-right: 10px;
 }
