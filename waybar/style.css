@@ -1,0 +1,66 @@
+/* Gruvbox Dark Theme for Waybar */
+
+@define-color bg #282828;
+@define-color fg #ebdbb2;
+@define-color yellow #fabd2f;
+@define-color orange #fe8019;
+@define-color red #fb4934;
+@define-color green #b8bb26;
+@define-color blue #83a598;
+@define-color purple #d3869b;
+@define-color aqua #8ec07c;
+@define-color gray #a89984;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "FontAwesome", monospace;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background: @bg;
+  color: @fg;
+  border-bottom: 2px solid @yellow;
+}
+
+#workspaces button {
+  background: transparent;
+  color: @gray;
+  border: none;
+  padding: 0 8px;
+}
+#workspaces button.active {
+  background: @yellow;
+  color: @bg;
+}
+#workspaces button.urgent {
+  background: @red;
+  color: @bg;
+}
+
+#clock, #cpu, #memory, #battery, #network, #pulseaudio, #tray, #custom-logo, #custom-power {
+  padding: 0 10px;
+  background: @bg;
+  color: @fg;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+#pulseaudio.muted {
+  color: @gray;
+}
+
+#custom-logo {
+  color: @orange;
+  font-weight: bold;
+}
+
+#custom-power {
+  color: @red;
+  font-weight: bold;
+  margin-right: 10px;
+}
