@@ -1,21 +1,11 @@
 #!/usr/bin/env bash
 # Cambia entre Catppuccin Mocha y Latte para GTK, Qt, kitty y rofi
 set -e
-USER_CONFIG="$HOME/.config"
-GTKRC="$USER_CONFIG/gtk-3.0/settings.ini"
-QT5CTRC="$USER_CONFIG/qt5ct/qt5ct.conf"
-KITTYRC="$USER_CONFIG/kitty/kitty.conf"
-ROFIRC="$USER_CONFIG/rofi/config.rasi"
-if grep -q 'Catppuccin-Mocha' "$GTKRC"; then
-  sed -i 's/Catppuccin-Mocha.*/Catppuccin-Latte-Standard-Mauve-Light/' "$GTKRC"
-  sed -i 's/Catppuccin-Mocha.*/Catppuccin-Latte/' "$QT5CTRC"
-  sed -i 's/theme = .*/theme = "Catppuccin-Latte"/' "$KITTYRC"
-  sed -i 's/catppuccin-mocha/catppuccin-latte/' "$ROFIRC"
-  notify-send "Theme toggled to Catppuccin Latte"
+#!/usr/bin/env bash
+# Alterna entre Catppuccin Mocha y Latte para GTK
+current=$(gsettings get org.gnome.desktop.interface gtk-theme)
+if [[ $current == *"Mocha"* ]]; then
+  gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Latte-Standard-Blue-Light"
 else
-  sed -i 's/Catppuccin-Latte.*/Catppuccin-Mocha-Standard-Mauve-Dark/' "$GTKRC"
-  sed -i 's/Catppuccin-Latte.*/Catppuccin-Mocha/' "$QT5CTRC"
-  sed -i 's/theme = .*/theme = "Catppuccin-Mocha"/' "$KITTYRC"
-  sed -i 's/catppuccin-latte/catppuccin-mocha/' "$ROFIRC"
-  notify-send "Theme toggled to Catppuccin Mocha"
+  gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
 fi
