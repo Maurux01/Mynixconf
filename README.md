@@ -28,7 +28,7 @@ This repository includes an automated installation script that simplifies the se
 
 1.  **Clone the repository (if you haven't already):**
     ```bash
-    git clone https://github.com/your-username/Mynixconf.git
+    git clone https://github.com/Maurux01/Mynixconf.git
     cd Mynixconf
     ```
     *(Replace the URL with your actual repository URL)*
