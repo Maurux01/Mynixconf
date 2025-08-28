@@ -29,11 +29,6 @@
           inputs.catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
-            catppuccin = {
-              flavour = "mocha";
-              accent = "mauve";
-            };
-
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./home/home.nix;
