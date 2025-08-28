@@ -68,6 +68,8 @@
     shell = pkgs.fish;
   };
 
+  programs.fish.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
