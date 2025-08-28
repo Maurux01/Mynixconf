@@ -10,11 +10,45 @@ SOURCE_DIR="$(dirname "${BASH_SOURCE[0]}")/gemini-riced-config"
 TARGET_DIR="/etc/nixos"
 # --- 
 
+echo "--- Ensuring flakes are enabled in the current system ---"
+
+# Find the latest backup directory (where the original configuration.nix is)
+LATEST_BACKUP_DIR=$(ls -td /etc/nixos.bak.* 2>/dev/null | head -1)
+
+if [[ -d "$LATEST_BACKUP_DIR" ]]; then
+    ORIGINAL_CONFIG_PATH="$LATEST_BACKUP_DIR/configuration.nix"
+    if [[ -f "$ORIGINAL_CONFIG_PATH" ]]; then
+        echo ">>> Found original configuration at $ORIGINAL_CONFIG_PATH"
+
+        # Check if experimental features are already set
+        if ! grep -q "nix.settings.experimental-features" "$ORIGINAL_CONFIG_PATH"; then
+            echo ">>> Adding experimental features to original configuration..."
+            echo -e "\n  nix.settings.experimental-features = [ \"nix-command\" \"flakes\" ];" | tee -a "$ORIGINAL_CONFIG_PATH" > /dev/null
+        else
+            echo ">>> 'nix.settings.experimental-features' already present. Assuming 'nix-command' and 'flakes' are included."
+        fi
+
+        echo ">>> Rebuilding system with flakes enabled (using original config)..."
+        if ! nixos-rebuild switch -I nixos-config="$ORIGINAL_CONFIG_PATH"; then
+            echo "❌ Failed to enable flakes in original configuration. Please enable them manually."
+            exit 1
+        fi
+        echo "✅ Flakes enabled in current system."
+    else
+        echo "Warning: Original configuration.nix not found in backup. Skipping flake enablement."
+    fi
+else
+    echo "Warning: No backup of original /etc/nixos found. Assuming flakes are already enabled or this is a fresh install."
+fi
+
+echo "--- Proceeding with new configuration ---"
+
 # Check if running as root
 if [[ "$EUID" -ne 0 ]]; then
     echo "This script must be run with sudo or as root."
     exit 1
 fi
+
 
 # Check if source directory exists
 if [[ ! -d "$SOURCE_DIR" ]]; then
