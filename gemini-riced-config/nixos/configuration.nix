@@ -6,12 +6,6 @@
     # You can import other modules here if needed
   ];
 
-  # Catppuccin theme
-  catppuccin = {
-    flavour = "mocha";
-    accent = "mauve";
-  };
-
   # Bootloader
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda"; # CHANGE THIS to your disk.

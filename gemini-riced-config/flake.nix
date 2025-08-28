@@ -11,10 +11,9 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, catppuccin, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs:
     let
       system = "x86_64-linux";
       # Replace with your actual username
@@ -26,7 +25,6 @@
         specialArgs = { inherit inputs username; };
         modules = [
           ./nixos/configuration.nix
-          inputs.catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
