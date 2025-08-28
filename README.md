@@ -42,7 +42,6 @@ This repository includes an automated installation script that simplifies the se
     ```bash
     sudo ./install.sh
     ```
-
 ## Post-Installation
 
 After the installation successfully completes:
