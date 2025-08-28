@@ -12,8 +12,7 @@
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
-  # Catppuccin theme
-  imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
+  # Catppuccin theme (module imported in flake.nix)
   catppuccin = {
     enable = true;
     flavour = "mocha";

@@ -30,7 +30,9 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./home/home.nix;
+            home-manager.users.${username} = {
+              imports = [ ./home/home.nix inputs.catppuccin.homeManagerModules.catppuccin ];
+            };
             # Pass specialArgs to home-manager
             home-manager.extraSpecialArgs = { inherit inputs username; };
           }
