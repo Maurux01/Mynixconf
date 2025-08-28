@@ -12,12 +12,9 @@
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
-  # Catppuccin theme (module imported in flake.nix)
-  catppuccin = {
-    enable = true;
-    flavour = "mocha";
-    accent = "mauve";
-  };
+  # Catppuccin theme is now managed system-wide in flake.nix
+  # We just need to enable it for specific programs.
+  programs.kitty.catppuccin.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

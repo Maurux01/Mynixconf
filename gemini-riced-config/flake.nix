@@ -26,13 +26,17 @@
         specialArgs = { inherit inputs username; };
         modules = [
           ./nixos/configuration.nix
+          inputs.catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
+            catppuccin = {
+              flavour = "mocha";
+              accent = "mauve";
+            };
+
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = {
-              imports = [ ./home/home.nix inputs.catppuccin.homeManagerModules.catppuccin ];
-            };
+            home-manager.users.${username} = import ./home/home.nix;
             # Pass specialArgs to home-manager
             home-manager.extraSpecialArgs = { inherit inputs username; };
           }
