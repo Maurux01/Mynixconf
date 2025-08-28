@@ -65,6 +65,7 @@
     isNormalUser = true;
     description = "NixOS User";
     extraGroups = [ "networkmanager" "wheel" "video" ];
+    shell = pkgs.fish;
   };
 
   # Allow unfree packages

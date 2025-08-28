@@ -12,9 +12,6 @@
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
-  # Catppuccin theme is now managed system-wide in flake.nix
-  # We just need to enable it for specific programs.
-
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
@@ -69,8 +66,7 @@
     enableFishIntegration = true;
   };
 
-  # Set fish as default shell
-  users.defaultUserShell = pkgs.fish;
+  # Set fish as default shell (now in configuration.nix)
 
   # Git config
   programs.git = {

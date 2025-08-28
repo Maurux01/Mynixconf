@@ -1,7 +1,0 @@
-configuration {
-    modi: "drun,run";
-    font: "sans 10";
-    show-icons: true;
-}
-
-@theme "default"
