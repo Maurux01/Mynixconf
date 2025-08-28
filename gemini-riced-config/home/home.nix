@@ -14,7 +14,6 @@
 
   # Catppuccin theme is now managed system-wide in flake.nix
   # We just need to enable it for specific programs.
-  programs.kitty.catppuccin.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
@@ -23,7 +22,7 @@
   home.packages = with pkgs; [
     # GUI
     kitty
-    firefox
+    brave
     dunst
     rofi-wayland # Rofi for X11 is also pulled in by i3 config
     wofi # Launcher for wayland
@@ -39,6 +38,7 @@
     fd
     ripgrep
     lazygit
+    fastfetch
 
     # Wayland specific
     swww # Wallpaper daemon
@@ -77,42 +77,6 @@
     enable = true;
     userName = "Your Name";
     userEmail = "your@email.com";
-  };
-
-  # Link dotfiles
-  home.file = {
-    ".config/hypr" = {
-      source = ./dotfiles/hypr;
-      recursive = true;
-    };
-    ".config/i3" = {
-      source = ./dotfiles/i3;
-      recursive = true;
-    };
-    ".config/waybar" = {
-      source = ./dotfiles/waybar;
-      recursive = true;
-    };
-    ".config/kitty" = {
-      source = ./dotfiles/kitty;
-      recursive = true;
-    };
-    ".config/dunst" = {
-      source = ./dotfiles/dunst;
-      recursive = true;
-    };
-    ".config/rofi" = {
-      source = ./dotfiles/rofi;
-      recursive = true;
-    };
-    ".config/nvim" = {
-      source = ./dotfiles/nvim;
-      recursive = true;
-    };
-    ".config/swww" = {
-      source = ./dotfiles/swww;
-      recursive = true;
-    };
   };
 
   # Let home Manager install and manage itself.

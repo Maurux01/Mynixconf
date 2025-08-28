@@ -2,26 +2,8 @@
 # i3 config
 # ---------------------------------------------------
 
-# --- Font
-font pango:FiraCode Nerd Font 10
-
 # --- Mod key
 set $mod Mod4
-
-# --- Gaps
-for_window [class=".*"] border pixel 2
-gaps inner 10
-gaps outer 5
-
-# --- Colors (Catppuccin Mocha)
-# class                 border  bground text    indicator child_border
-client.focused          #cba6f7 #1e1e2e #cdd6f4 #cba6f7   #cba6f7
-client.unfocused        #313244 #1e1e2e #cdd6f4 #45475a   #313244
-client.focused_inactive #313244 #1e1e2e #cdd6f4 #45475a   #313244
-client.urgent           #f38ba8 #1e1e2e #cdd6f4 #f38ba8   #f38ba8
-
-# --- Autostart
-exec_always --no-startup-id polybar
 
 # --- Keybindings
 # Launch terminal
