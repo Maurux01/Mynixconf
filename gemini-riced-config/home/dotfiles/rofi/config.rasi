@@ -1,0 +1,93 @@
+/* Catppuccin Mocha rofi theme */
+
+* {
+    background-color: #1e1e2e; /* Base */
+    border-color: #1e1e2e;
+    text-color: #cdd6f4; /* Text */
+    font: "FiraCode Nerd Font 12";
+}
+
+window {
+    width: 500px;
+    border: 2px;
+    border-color: #cba6f7; /* Mauve */
+    border-radius: 10px;
+    padding: 10px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #313244; /* Surface0 */
+    children: [ prompt, entry ];
+}
+
+prompt {
+    enabled: true;
+    padding: 5px;
+    text-color: #cba6f7; /* Mauve */
+}
+
+entry {
+    placeholder: "Search...";
+    placeholder-color: #6c7086; /* Overlay0 */
+    padding: 5px;
+}
+
+listview {
+    padding: 10px 0 0 0;
+    lines: 8;
+    columns: 1;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+}
+
+element {
+    padding: 5px;
+    border-radius: 5px;
+    orientation: horizontal;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
+element-icon {
+    size: 20px;
+    padding: 0 10px 0 0;
+}
+
+element.normal.normal {
+    background-color: #1e1e2e; /* Base */
+    text-color: #cdd6f4; /* Text */
+}
+
+element.normal.urgent {
+    background-color: #f38ba8; /* Red */
+    text-color: #1e1e2e; /* Base */
+}
+
+element.normal.active {
+    background-color: #cba6f7; /* Mauve */
+    text-color: #1e1e2e; /* Base */
+}
+
+element.selected.normal {
+    background-color: #45475a; /* Surface1 */
+    text-color: #cdd6f4; /* Text */
+}
+
+element.selected.urgent {
+    background-color: #f38ba8; /* Red */
+    text-color: #1e1e2e; /* Base */
+}
+
+element.selected.active {
+    background-color: #cba6f7; /* Mauve */
+    text-color: #1e1e2e; /* Base */
+}
